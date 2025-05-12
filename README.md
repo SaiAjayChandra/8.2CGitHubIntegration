@@ -1,55 +1,64 @@
-# 8.2C GitHub Integration with Jenkins
+# CI/CD Pipeline using Jenkins – Task 8.2C
 
-This project demonstrates the integration of GitHub with Jenkins using a Declarative Pipeline. It includes seven key stages that represent a standard CI/CD workflow for a Java-based project.
+## Overview
 
-##  Jenkins Pipeline Stages
+This project is created for **Task 8.2C** as part of the unit requirements. The task involves setting up a Jenkins pipeline that connects to a GitHub repository and simulates a CI/CD process using 7 defined stages. Each stage represents a key part of the software development lifecycle and uses a specific tool as required in the instructions.
 
-The Jenkinsfile in this repository defines the following stages:
+This is a **theoretical design**, so instead of running actual commands, each stage prints a message (using `echo`) to represent the tool and action being performed. The Jenkins job is triggered by polling GitHub at regular intervals (no webhook is used).
 
-1. **Build**
-   - Builds the application using **Maven**.
+## Repository Contents
 
-2. **Unit and Integration Tests**
-   - Executes tests using **JUnit** and **Postman**.
+- `Jenkinsfile` – Contains the declarative Jenkins pipeline.
+- `README.md` – This file explaining the purpose and structure of the pipeline.
 
-3. **Code Analysis**
-   - Performs static code analysis using **SonarQube**.
+---
 
-4. **Security Scan**
-   - Scans the project for vulnerabilities using **Snyk** or **OWASP Dependency-Check**.
+## Jenkins Pipeline Stages
 
-5. **Deploy to Staging**
-   - Deploys the application to a **staging environment on AWS EC2**.
+The Jenkins pipeline includes the following 7 stages:
 
-6. **Integration Tests on Staging**
-   - Runs integration tests in the staging environment.
+### 1. **Build**
+- **Task:** Compiles and packages the source code.
+- **Tool Used:** Maven
 
-7. **Deploy to Production**
-   - Deploys the application to the **production environment on AWS EC2**.
+### 2. **Unit and Integration Tests**
+- **Task:** Runs unit and integration tests to make sure the code works and components integrate.
+- **Tool Used:** JUnit
 
-## Technologies Used
+### 3. **Code Analysis**
+- **Task:** Analyzes the code quality and checks for bugs or bad practices.
+- **Tool Used:** SonarQube
 
-- GitHub
-- Jenkins
-- Maven
-- JUnit
-- Postman
-- SonarQube
-- Snyk / OWASP Dependency-Check
-- AWS EC2
+### 4. **Security Scan**
+- **Task:** Scans for known security vulnerabilities in dependencies.
+- **Tool Used:** OWASP Dependency-Check
 
-##  Repository Contents
+### 5. **Deploy to Staging**
+- **Task:** Simulates deployment to a staging server.
+- **Tool Used:** Ansible
 
-- `Jenkinsfile`: Defines the CI/CD pipeline stages.
-- `README.md`: Project overview and pipeline documentation.
+### 6. **Integration Tests on Staging**
+- **Task:** Runs integration/API tests on the staging environment.
+- **Tool Used:** Postman (via Newman CLI)
 
-## Jenkins Integration
+### 7. **Deploy to Production**
+- **Task:** Simulates final deployment to the production server.
+- **Tool Used:** Ansible
 
-This repository is linked to a Jenkins pipeline that:
-- Pulls the Jenkinsfile via SCM.
-- Polls for changes in the GitHub repository.
-- Automatically triggers builds upon updates.
+---
 
-## Author
+## Jenkins Job Setup
 
-**Sai Ajay Chandra Jagarlamudi**
+- A GitHub repository was created and connected to Jenkins.
+- The pipeline job was set up to **poll SCM** for changes at regular intervals (no webhook used).
+- The job runs the `Jenkinsfile` stored in the `main` branch of the repository.
+
+This Jenkins pipeline successfully represents all the required stages with appropriate tools. Though no actual deployments or tests are performed, the structure reflects a real-world CI/CD pipeline using industry-standard tools.
+
+---
+
+**Author**  
+Sai Ajay Chandra Jagarlamudi  
+Student ID: *224646369*  
+Deakin University – SIT223/SIT753  
+
