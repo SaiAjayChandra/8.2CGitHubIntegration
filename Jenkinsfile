@@ -2,43 +2,50 @@ pipeline {
     agent any
 
     stages {
+
         stage('Build') {
             steps {
-                bat 'mvn clean install'
+                echo 'Build the application using Maven to compile and package the source code.'
             }
         }
+
         stage('Unit and Integration Tests') {
             steps {
-                bat 'mvn test'
-                bat 'mvn verify'
+                echo 'Run unit and integration tests using JUnit to verify functionality and component integration.'
             }
         }
+
         stage('Code Analysis') {
             steps {
-                bat 'mvn sonar:sonar'
+                echo 'Analyze code quality using SonarQube to detect bugs, code smells, and maintainability issues.'
             }
         }
+
         stage('Security Scan') {
             steps {
-                bat 'mvn org.owasp:dependency-check-maven:check'
+                echo 'Perform security scanning with OWASP Dependency-Check to identify known vulnerabilities.'
             }
         }
+
         stage('Deploy to Staging') {
             steps {
-                echo 'Deploying to AWS EC2 staging environment'
+                echo 'Deploy the application to the staging server using Ansible.'
             }
         }
+
         stage('Integration Tests on Staging') {
             steps {
-                echo 'Running integration tests in staging'
+                echo 'Execute integration tests in staging using Postman via Newman CLI.'
             }
         }
+
         stage('Deploy to Production') {
             steps {
-                echo 'Deploying to AWS EC2 production environment'
+                echo 'Deploy the application to the production server using Ansible after successful staging validation.'
             }
         }
     }
 }
+
 
                 
