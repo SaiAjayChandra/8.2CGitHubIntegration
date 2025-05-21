@@ -5,6 +5,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                // Added a comment for demonstration
                 echo 'Build the application using Maven to compile and package the source code.'
             }
         }
