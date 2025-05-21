@@ -1,4 +1,5 @@
 pipeline {
+    // Demo commit: added a harmless comment to trigger Jenkins build
     agent any
 
     stages {
